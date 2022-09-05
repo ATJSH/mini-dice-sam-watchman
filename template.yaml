@@ -17,6 +17,6 @@ Resources:
         Schedule:
           Type: Schedule
           Properties:
-            Schedule: rate(10 minute)
+            Schedule: rate(10 minutes)
     Metadata:
       BuildMethod: makefile

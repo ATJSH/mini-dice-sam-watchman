@@ -1,7 +1,7 @@
 import { HttpModule, HttpService } from "@nestjs/axios";
 import { Injectable, Module } from "@nestjs/common";
 import { NestjsStandaloneAppService } from "@shared/utilities";
-import { APIGatewayProxyEvent, Context, ScheduledEvent } from "aws-lambda";
+import { Context, ScheduledEvent } from "aws-lambda";
 import { lastValueFrom } from "rxjs";
 
 @Injectable()
