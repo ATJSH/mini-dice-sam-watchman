@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Watcher for mini-dice.com
+
+Resources:
+  WatchAndAlertViaTelegram:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.lambdaHandler
+      Runtime: nodejs16.x
+      CodeUri: .
+      Timeout: 60
+      Architectures:
+        - x86_64
+      Events:
+        Schedule:
+          Type: Schedule
+          Properties:
+            Schedule: rate(10 minute)
+    Metadata:
+      BuildMethod: makefile

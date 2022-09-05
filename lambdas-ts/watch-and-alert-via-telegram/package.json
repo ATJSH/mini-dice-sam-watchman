@@ -1,0 +1,32 @@
+{
+  "name": "@lambdas/watch-and-alert-via-telegram",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "webpack:sambuild": "nest build --webpack --webpackPath sam.webpack.config.js",
+    "webpack:watch": "nest build --webpack --watch --webpackPath local.webpack.config.js"
+  },
+  "dependencies": {
+    "@nestjs/axios": "^0.1.0",
+    "@nestjs/common": "^9.0.11",
+    "@nestjs/core": "^9.0.11",
+    "@shared/utilities": "workspace:*",
+    "aws-lambda": "^1.0.7",
+    "rxjs": "^7.5.6"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.1.1",
+    "@types/aws-lambda": "^8.10.102",
+    "dotenv-webpack": "^8.0.1",
+    "reflect-metadata": "^0.1.13",
+    "run-script-webpack-plugin": "^0.1.1",
+    "source-map-support": "^0.5.21",
+    "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

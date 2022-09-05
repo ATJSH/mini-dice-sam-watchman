@@ -1,0 +1,11 @@
+{
+  "name": "mini-dice-sam-watchman",
+  "version": "1.0.0",
+  "repository": "https://github.com/ATJSH/mini-dice-sam-watchman",
+  "author": "전성훈 / SUNG HOON CHON <letaem77@gmail.com>",
+  "packageManager": "yarn@3.2.3",
+  "workspaces": [
+    "lambdas-ts/*",
+    "shared-ts/*"
+  ]
+}

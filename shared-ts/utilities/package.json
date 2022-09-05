@@ -1,0 +1,15 @@
+{
+  "name": "@shared/utilities",
+  "private": true,
+  "dependencies": {
+    "@fastify/aws-lambda": "^3.1.1",
+    "@nestjs/common": "^9.0.11",
+    "@nestjs/core": "^9.0.11",
+    "@nestjs/platform-fastify": "^9.0.11",
+    "aws-lambda": "^1.0.7",
+    "fastify": "4.4.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.102"
+  }
+}
