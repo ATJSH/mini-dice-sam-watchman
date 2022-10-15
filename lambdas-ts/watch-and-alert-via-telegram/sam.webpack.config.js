@@ -18,7 +18,11 @@ module.exports = (options, webpack) => {
     mode: "production",
     plugins: [
       ...options.plugins,
-      new Dotenv({ path: "./.env.aws" }),
+      new Dotenv({
+        path: "./.env",
+        safe: true,
+        defaults: "./.env.example"
+      }),
       new webpack.IgnorePlugin({
         checkResource(resource) {
           if (lazyImports.includes(resource)) {

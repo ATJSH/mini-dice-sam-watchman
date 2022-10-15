@@ -37,27 +37,38 @@ export class AppService implements NestjsStandaloneAppService<ScheduledEvent> {
     }
   }
 
-  private async sendMessage() {
-    const serverStatus = await this.checkServer();
-    console.log(serverStatus.isServerOk ? "Server is ok" : "Server is not ok");
-
-    if (serverStatus.isServerOk == false) {
-      await lastValueFrom(
+  private async sendMessage(message: string) {
+    try {
+      return lastValueFrom(
         this.httpService.post(
           `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
           {
             chat_id: process.env.TELEGRAM_BOT_CHAT_ID,
-            text: `Server is down. Check the server immediately. Detail: ${
-              serverStatus.detail ?? "(no detail)"
-            }`
+            text: message
           }
         )
       );
+    } catch (error) {
+      console.log(`Could not send telegram message. Error: ${error}`);
     }
   }
 
   async handler(event: ScheduledEvent, context: Context) {
-    await this.sendMessage();
+    const serverStatus = await this.checkServer();
+    console.log(serverStatus.isServerOk ? "Server is ok" : "Server is not ok");
+
+    await this.sendIf(
+      serverStatus.isServerOk === false,
+      `Server is down. Check the server immediately. Detail: ${
+        serverStatus.detail ?? "(no detail)"
+      }`
+    );
+  }
+
+  private async sendIf(condition: boolean, message: string) {
+    if (condition) {
+      await this.sendMessage(message);
+    }
   }
 }
 
