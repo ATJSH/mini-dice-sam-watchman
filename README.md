@@ -1,6 +1,6 @@
 # [mini-dice.com](https://mini-dice.com) SAM Watchman
 
-[AWS SAM(Serverless Application Model)](https://aws.amazon.com/ko/serverless/sam/)을 사용하여 [mini-dice.com](https://mini-dice.com)의 서버 상태를 주기적으로 체크한다.
+[AWS SAM(Serverless Application Model)](https://aws.amazon.com/ko/serverless/sam/)을 사용하여 [mini-dice.com](https://mini-dice.com)의 서버 상태를 주기적으로 체크하고 개발자에게 노티해주는 기능을 구현한다.
 
 ## 기능
 
